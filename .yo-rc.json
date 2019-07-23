@@ -1,0 +1,43 @@
+{
+  "generator-jhipster": {
+    "applicationType": "microservice",
+    "gitCompany": "",
+    "baseName": "limePolicyService",
+    "packageName": "sg.com.income.lifeinsurance",
+    "packageFolder": "sg/com/income/lifeinsurance",
+    "serverPort": 8081,
+    "serviceDiscoveryType": "eureka",
+    "authenticationType": "jwt",
+    "uaaBaseName": "../uaa",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "enableSwaggerCodegen": false,
+    "messageBroker": false,
+    "buildTool": "gradle",
+    "useSass": false,
+    "clientPackageManager": "npm",
+    "testFrameworks": [],
+    "enableTranslation": false,
+    "nativeLanguage": "en",
+    "languages": [
+      "en"
+    ],
+    "clientFramework": "angularX",
+    "jhiPrefix": "jhi",
+    "jhipsterVersion": "6.1.2",
+    "jwtSecretKey": "YmY4NDkzMjU1MGJhNzYzMDVkYTljMWFlOTdhZDg4Y2U0NWJlZGM5OWFlOWJlMmI5N2EzZmYzZjMyOTRmYmNkYmI1MmI3YzA3M2NmMzQwNDVhOTA2MTM3NjVkMWY1NTdjMTRjZDA4NTQ2MWRhN2NhZjZiMzE4Yjc1MWEyMzFjMjY=",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "skipClient": true,
+    "skipUserManagement": true
+  },
+  "git-provider": "GitHub",
+  "git-company": "vaanstellar",
+  "repository-name": "jhipster-lime-pol"
+}

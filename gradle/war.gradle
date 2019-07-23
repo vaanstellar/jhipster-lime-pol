@@ -1,0 +1,12 @@
+apply plugin: "war"
+
+bootWar {
+    mainClassName = "sg.com.income.lifeinsurance.LimePolicyServiceApp"
+    includes = ["WEB-INF/**", "META-INF/**"]
+}
+
+war {
+    enabled = true
+    archiveExtension = "war.original"
+    includes = ["WEB-INF/**", "META-INF/**"]
+}
