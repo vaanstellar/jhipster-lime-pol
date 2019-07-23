@@ -1,0 +1,187 @@
+DEFAULT_MAX_LENGTH = 25
+DEFAULT_MIN_LENGTH = 10
+DATE_LENGTH = 10
+
+/**
+ * policy details is a database table / Entity which holds all the information necessary for the ebao submission.
+ * its also holds a copy of user details in order to hold the user details submitted by user during the policy submission
+ */
+entity PolicyDetails {
+    policyCode String unique maxlength(DEFAULT_MAX_LENGTH),
+    planCode String maxlength(DEFAULT_MIN_LENGTH),
+    planType String maxlength(DEFAULT_MAX_LENGTH),
+    agentCode String,
+    status String maxlength(DEFAULT_MAX_LENGTH),
+    riderNames String,
+    contactByCall String maxlength(5),
+    contactBySMS String maxlength(5),
+  	nric String required maxlength(9),
+    name String,
+    gender String maxlength(1),
+    birthDate String maxlength(10),
+    emailId String maxlength(320) required,
+    phoneNo String required maxlength(15),
+    educationLevel String maxlength(1),
+    residentialPostalCode String maxlength(6),
+    residentialUnitNo String maxlength(7),
+    residentialAddress1 String,
+    residentialAddress2 String,
+    residentialAddress3 String,
+    residentialAddress4 String,
+    residentialSameAsMailing String maxlength(5),
+    mailingPostalCode String maxlength(6),
+    mailingUnitNo String maxlength(7),
+    mailingAddress1 String,
+    mailingAddress2 String,
+    mailingAddress3 String,
+    mailingAddress4 String,
+    occupation String,
+    residentialStatus String maxlength(3),
+    nationality String maxlength(10),
+    placeOfNationality String,
+    countryOfBirth String maxlength(3),
+    placeOfBirth String,
+    occupationCode String maxlength(4),
+    nameOfEmployer String,
+    annualIncome String maxlength(15),
+    addressType String maxlength(DEFAULT_MAX_LENGTH),
+    maritalStatus String maxlength(1),
+    uinfin String maxlength(9),
+    myInfoVerified String maxlength(15),
+    createdDate LocalDate,
+    modifiedDate LocalDate
+}
+
+
+/**
+ * User details is a central repository which holds the latest provided information by the customer.
+ * the same information will be pre-populated during creation of new policy.
+ */
+entity UserDetails {
+ 	nric String unique required maxlength(9),
+    name String,
+    gender String maxlength(1),
+    birthDate String maxlength(10),
+    emailId String maxlength(320) required,
+    phoneNo String maxlength(15),
+    educationLevel String maxlength(1),
+    residentialPostalCode String maxlength(6),
+    residentialUnitNo String maxlength(7),
+    residentialAddress1 String,
+    residentialAddress2 String,
+    residentialAddress3 String,
+    residentialAddress4 String,
+    residentialSameAsMailing String maxlength(5),
+    mailingPostalCode String maxlength(10),
+    mailingUnitNo String maxlength(10),
+    mailingAddress1 String,
+    mailingAddress2 String,
+    mailingAddress3 String,
+    mailingAddress4 String,
+    occupation String,
+    occupationCode String maxlength(4),
+    residentialStatus String maxlength(3),
+    nationality String maxlength(10),
+    placeOfNationality String,
+    countryOfBirth String maxlength(3),
+    placeOfBirth String,
+    nameOfEmployer String,
+    annualIncome String maxlength(15),
+    addressType String maxlength(DEFAULT_MAX_LENGTH),
+    maritalStatus String maxlength(1),
+    uinfin String maxlength(9),
+    createdDate LocalDate,
+    modifiedDate LocalDate
+}
+
+/**
+ * Policy payment details is used to hold the payment related information.
+ * A subsequent callback from the ESB server is stored in this table and further sent in ebao during submission.
+ */
+entity PolicyPaymentDetails {
+    paymentTransactionNo String maxlength(50),
+    prnNo String,
+    encryptedPrnNo String,
+    totalFirstPremium String maxlength(DEFAULT_MAX_LENGTH),
+    paymentMethod String maxlength(DEFAULT_MAX_LENGTH),
+    esbPaymentMode String maxlength(DEFAULT_MAX_LENGTH),
+    paymentStatus String maxlength(10),
+    createdDate LocalDate,
+    modifiedDate LocalDate,
+    createdTime Instant,
+    modifiedTime Instant
+}
+
+/**
+ * documents those are derived out of the requests generated.
+ * e.g. ebao request, application form which needs to be uploaded via S3.
+ */
+entity DerivedDocs {
+    docContent TextBlob,
+    createdDate LocalDate,
+    modifiedDate LocalDate
+}
+
+/**
+ * document type reference is used to provide the reference.
+ */
+entity DocTypeReference {
+	docType String,
+    docStorage String,
+    createdDate LocalDate,
+    modifiedDate LocalDate
+}
+
+/**
+ * policy status will be tracked here. during attempt for retry, policy svc will review the record for that policy
+ * to understand the state of the policy and trigger the step processing.
+ */
+entity PolicyStateChart {
+    currentTask String maxlength(DEFAULT_MAX_LENGTH),
+    currentPayload TextBlob,
+    status Boolean,
+    isProcessing Boolean,
+    createdDate LocalDate,
+    modifiedDate LocalDate
+}
+
+/**
+ * user suspension functionality is achieved using this table, CIAM service is the consumer for this API
+ */
+entity UserSuspension {
+	emailId String unique,
+    retryCount Integer,
+    suspensionTimeInMinutes Long,
+    reason String maxlength(DEFAULT_MAX_LENGTH),
+    createdDate LocalDate,
+    modifiedDate LocalDate
+}
+
+/**
+ * User Hash to store data hashing
+ */
+entity UserHash {
+	nric String unique,
+    hash1 String,
+    hash2 String,
+    createdDate LocalDate,
+    modifiedDate LocalDate
+}
+
+relationship OneToMany {
+    UserDetails to PolicyDetails // One User can have many policies
+    PolicyDetails to DerivedDocs // One policy can have different derived docs
+    DocTypeReference to DerivedDocs // One docType can have many uploaded docs
+}
+
+/**
+ * One to one relationship.
+ */
+relationship OneToOne {
+    PolicyDetails to PolicyPaymentDetails // one policy to one policy payment status
+    PolicyDetails to PolicyStateChart // One policy can have one status at any point of time.
+}
+
+
+// Set pagination options
+paginate UserDetails, PolicyDetails, DerivedDocs, PolicyPaymentDetails, PolicyStateChart, DocTypeReference with infinite-scroll
