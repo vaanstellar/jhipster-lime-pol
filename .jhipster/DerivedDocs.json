@@ -1,0 +1,45 @@
+{
+    "name": "DerivedDocs",
+    "fields": [
+        {
+            "fieldName": "docContent",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "createdDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "modifiedDate",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "policyDetails",
+            "otherEntityRelationshipName": "derivedDocs",
+            "relationshipName": "policyDetails",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "docTypeReference",
+            "otherEntityRelationshipName": "derivedDocs",
+            "relationshipName": "docTypeReference",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190723015948",
+    "javadoc": "documents those are derived out of the requests generated.\ne.g. ebao request, application form which needs to be uploaded via S3.",
+    "entityTableName": "derived_docs",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "limePolicyService",
+    "applications": "*",
+    "microserviceName": "limePolicyService"
+}

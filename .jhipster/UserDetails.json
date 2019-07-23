@@ -1,0 +1,239 @@
+{
+    "name": "UserDetails",
+    "fields": [
+        {
+            "fieldName": "nric",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "unique",
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 9
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "gender",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 1
+        },
+        {
+            "fieldName": "birthDate",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 10
+        },
+        {
+            "fieldName": "emailId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength",
+                "required"
+            ],
+            "fieldValidateRulesMaxlength": 320
+        },
+        {
+            "fieldName": "phoneNo",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 15
+        },
+        {
+            "fieldName": "educationLevel",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 1
+        },
+        {
+            "fieldName": "residentialPostalCode",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 6
+        },
+        {
+            "fieldName": "residentialUnitNo",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 7
+        },
+        {
+            "fieldName": "residentialAddress1",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "residentialAddress2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "residentialAddress3",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "residentialAddress4",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "residentialSameAsMailing",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 5
+        },
+        {
+            "fieldName": "mailingPostalCode",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 10
+        },
+        {
+            "fieldName": "mailingUnitNo",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 10
+        },
+        {
+            "fieldName": "mailingAddress1",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mailingAddress2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mailingAddress3",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mailingAddress4",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "occupation",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "occupationCode",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 4
+        },
+        {
+            "fieldName": "residentialStatus",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 3
+        },
+        {
+            "fieldName": "nationality",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 10
+        },
+        {
+            "fieldName": "placeOfNationality",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "countryOfBirth",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 3
+        },
+        {
+            "fieldName": "placeOfBirth",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "nameOfEmployer",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "annualIncome",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 15
+        },
+        {
+            "fieldName": "addressType",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 25
+        },
+        {
+            "fieldName": "maritalStatus",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 1
+        },
+        {
+            "fieldName": "uinfin",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 9
+        },
+        {
+            "fieldName": "createdDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "modifiedDate",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "policyDetails",
+            "otherEntityRelationshipName": "userDetails",
+            "relationshipName": "policyDetails"
+        }
+    ],
+    "changelogDate": "20190723015946",
+    "javadoc": "User details is a central repository which holds the latest provided information by the customer.\nthe same information will be pre-populated during creation of new policy.",
+    "entityTableName": "user_details",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "limePolicyService",
+    "applications": "*",
+    "microserviceName": "limePolicyService"
+}
