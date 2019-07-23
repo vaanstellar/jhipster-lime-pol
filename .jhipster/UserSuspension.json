@@ -1,0 +1,48 @@
+{
+    "name": "UserSuspension",
+    "fields": [
+        {
+            "fieldName": "emailId",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "unique"
+            ]
+        },
+        {
+            "fieldName": "retryCount",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "suspensionTimeInMinutes",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "reason",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 25
+        },
+        {
+            "fieldName": "createdDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "modifiedDate",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190723015951",
+    "javadoc": "user suspension functionality is achieved using this table, CIAM service is the consumer for this API",
+    "entityTableName": "user_suspension",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "limePolicyService",
+    "applications": "*",
+    "microserviceName": "limePolicyService"
+}

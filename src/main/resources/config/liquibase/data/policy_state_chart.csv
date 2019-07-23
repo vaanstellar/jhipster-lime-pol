@@ -1,0 +1,11 @@
+id;current_task;current_payload;status;is_processing;created_date;modified_date
+1;cutting-edge;../data/blob/hipster.txt;false;true;2019-07-22;2019-07-22
+2;application;../data/blob/hipster.txt;false;true;2019-07-22;2019-07-22
+3;withdrawal frame Networke;../data/blob/hipster.txt;true;true;2019-07-22;2019-07-22
+4;Bike bandwidth;../data/blob/hipster.txt;true;false;2019-07-22;2019-07-22
+5;platforms;../data/blob/hipster.txt;true;false;2019-07-22;2019-07-22
+6;calculate;../data/blob/hipster.txt;true;false;2019-07-22;2019-07-22
+7;bus online;../data/blob/hipster.txt;true;true;2019-07-22;2019-07-22
+8;Soft;../data/blob/hipster.txt;true;false;2019-07-22;2019-07-22
+9;Movies Colombian Peso Uni;../data/blob/hipster.txt;true;false;2019-07-22;2019-07-22
+10;analyzing;../data/blob/hipster.txt;true;false;2019-07-22;2019-07-22

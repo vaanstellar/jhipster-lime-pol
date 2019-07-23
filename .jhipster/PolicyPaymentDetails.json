@@ -1,0 +1,89 @@
+{
+    "name": "PolicyPaymentDetails",
+    "fields": [
+        {
+            "fieldName": "paymentTransactionNo",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 50
+        },
+        {
+            "fieldName": "prnNo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "encryptedPrnNo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "totalFirstPremium",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 25
+        },
+        {
+            "fieldName": "paymentMethod",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 25
+        },
+        {
+            "fieldName": "esbPaymentMode",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 25
+        },
+        {
+            "fieldName": "paymentStatus",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 10
+        },
+        {
+            "fieldName": "createdDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "modifiedDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "createdTime",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "modifiedTime",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "policyDetails",
+            "otherEntityRelationshipName": "policyPaymentDetails",
+            "relationshipName": "policyDetails",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20190723015947",
+    "javadoc": "Policy payment details is used to hold the payment related information.\nA subsequent callback from the ESB server is stored in this table and further sent in ebao during submission.",
+    "entityTableName": "policy_payment_details",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "limePolicyService",
+    "applications": "*",
+    "microserviceName": "limePolicyService"
+}

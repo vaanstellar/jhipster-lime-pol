@@ -1,0 +1,40 @@
+{
+    "name": "UserHash",
+    "fields": [
+        {
+            "fieldName": "nric",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "unique"
+            ]
+        },
+        {
+            "fieldName": "hash1",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "hash2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createdDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "modifiedDate",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190723015952",
+    "javadoc": "User Hash to store data hashing",
+    "entityTableName": "user_hash",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "limePolicyService",
+    "applications": "*",
+    "microserviceName": "limePolicyService"
+}

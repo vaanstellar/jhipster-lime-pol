@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity PolicyDetails.
+    -->
+    <changeSet id="20190723015945-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="policy_payment_details_id"
+                                 baseTableName="policy_details"
+                                 constraintName="fk_policy_details_policy_payment_details_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="policy_payment_details"/>
+
+        <addForeignKeyConstraint baseColumnNames="policy_state_chart_id"
+                                 baseTableName="policy_details"
+                                 constraintName="fk_policy_details_policy_state_chart_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="policy_state_chart"/>
+
+        <addForeignKeyConstraint baseColumnNames="user_details_id"
+                                 baseTableName="policy_details"
+                                 constraintName="fk_policy_details_user_details_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="user_details"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,54 @@
+{
+    "name": "PolicyStateChart",
+    "fields": [
+        {
+            "fieldName": "currentTask",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 25
+        },
+        {
+            "fieldName": "currentPayload",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "isProcessing",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "createdDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "modifiedDate",
+            "fieldType": "LocalDate"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "policyDetails",
+            "otherEntityRelationshipName": "policyStateChart",
+            "relationshipName": "policyDetails",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20190723015950",
+    "javadoc": "policy status will be tracked here. during attempt for retry, policy svc will review the record for that policy\nto understand the state of the policy and trigger the step processing.",
+    "entityTableName": "policy_state_chart",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "limePolicyService",
+    "applications": "*",
+    "microserviceName": "limePolicyService"
+}

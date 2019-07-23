@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <!--
+        Added the constraints for entity DerivedDocs.
+    -->
+    <changeSet id="20190723015948-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="policy_details_id"
+                                 baseTableName="derived_docs"
+                                 constraintName="fk_derived_docs_policy_details_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="policy_details"/>
+
+        <addForeignKeyConstraint baseColumnNames="doc_type_reference_id"
+                                 baseTableName="derived_docs"
+                                 constraintName="fk_derived_docs_doc_type_reference_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="doc_type_reference"/>
+
+    </changeSet>
+</databaseChangeLog>
